@@ -1,0 +1,361 @@
+1. Primitive Data Types
+
+Basic building blocks of JS.
+
+String → text
+"hello"
+
+Number → integers + decimals
+10, 3.14
+
+Boolean → true / false
+isLoggedIn = true
+
+Undefined → declared but no value
+let x;
+
+Null → intentionally empty
+let user = null
+
+NaN → invalid number
+Number("abc")
+
+👉 Primitive = stored by value (copy banta hai)
+
+2. Variables
+
+var → old, function scoped (avoid)
+
+let → block scoped (use)
+
+const → cannot reassign (use by default)
+
+3. Operators
+Arithmetic
+
++ - * / % **
+
+Comparison
+
+== (loose) ❌
+=== (strict) ✅
+>, <, >=, <=
+
+Logical
+
+&& AND
+
+|| OR
+
+! NOT
+
+Used heavily in conditions & React rendering.
+
+4. Conditional Statements
+if–else
+if (age >= 18) {
+  allow();
+} else {
+  deny();
+}
+
+switch
+
+Used when many fixed cases exist.
+
+5. Functions
+
+Reusable blocks of code.
+
+arguments → input
+
+return → output
+
+scope → where variables are accessible
+
+function add(a, b) {
+  return a + b;
+}
+
+6. Callbacks & Higher Order Functions
+
+Callback → function passed as argument
+
+HOF → function that accepts or returns another function
+
+Example:
+
+setTimeout(() => console.log("Hi"), 1000);
+
+
+Used everywhere in async JS.
+
+7. Loops
+
+for → fixed iterations
+
+while → condition based
+
+do-while → runs at least once
+
+8. Arrays
+Basics
+
+Declaration: let arr = [1,2,3]
+
+Access: arr[0]
+
+Assign: arr[1] = 10
+
+Array Methods (VERY IMPORTANT)
+
+push, pop
+
+map → transform
+
+filter → select
+
+reduce → accumulate
+
+forEach → loop only
+
+2D / 3D Arrays
+
+Used in matrices, grids, boards.
+
+9. Objects
+Difference from Arrays
+
+Array → ordered list
+
+Object → key–value pair
+
+let user = {
+  name: "Vanshika",
+  age: 22,
+  greet() {}
+};
+
+
+Access: user.name
+
+Assign: user.age = 23
+
+Loop: for...in
+
+this → current object
+
+👉 Real apps = objects everywhere
+
+10. Hoisting
+
+Variables & functions are moved to top
+
+var → hoisted with undefined
+
+let/const → temporal dead zone
+
+11. Scopes
+
+Global → everywhere
+
+Local → inside function
+
+Block → {} (let/const)
+
+12. Closures & Lexical Scoping
+
+Function remembers outer variables even after execution.
+
+Used in:
+
+Counters
+
+Private variables
+
+React hooks logic
+
+13. Execution Context
+
+JS engine creates:
+
+Variable Environment
+
+Scope Chain
+
+this
+
+Call stack works on this.
+
+14. Strict Mode
+"use strict";
+
+
+Prevents silent errors
+
+Cleaner code
+
+15. Recursion
+
+Function calling itself.
+
+Used in:
+
+Tree traversal
+
+LinkedList
+
+DFS
+
+16. DOM Manipulation
+
+JS interacting with HTML.
+
+Important methods:
+
+createElement
+
+append
+
+getElementById
+
+querySelector(All)
+
+setAttribute
+
+children
+
+17. Events
+
+addEventListener
+
+Event bubbling (bottom → top)
+
+Event capturing (top → bottom)
+
+Used in buttons, forms, inputs.
+
+18. JSON
+
+Data format for APIs.
+
+{
+  "name": "A",
+  "age": 20
+}
+
+19. Async JavaScript
+setTimeout / setInterval
+
+Delay & repeat execution.
+
+Event Loop
+
+Call Stack
+
+Web APIs
+
+Task Queue
+
+This explains why JS is non-blocking.
+
+20. Promises
+
+Better than callbacks.
+
+States:
+
+pending
+
+fulfilled
+
+rejected
+
+fetch(url)
+  .then(res => res.json())
+  .then(data => console.log(data))
+
+21. async / await
+
+Cleaner promise handling.
+
+const data = await fetch(url);
+
+
+👉 Interview favorite ⭐
+
+22. Fetch, Axios, CORS
+
+Fetch / Axios → API calls
+
+CORS → browser security rule
+
+23. Storage
+
+localStorage → permanent
+
+sessionStorage → tab based
+
+cookies → server + client
+
+Used for auth tokens.
+
+24. ES6+ Features (VERY IMPORTANT)
+
+Arrow functions
+
+Template literals
+
+Destructuring
+
+Default params
+
+Classes
+
+Inheritance
+
+call, apply, bind
+
+Optional chaining ?.
+
+BigInt
+
+Modules (import/export)
+
+25. Data Structures (for interviews)
+
+Stack
+
+Queue
+
+Linked List
+
+Trees
+
+Graphs
+
+Know:
+
+Traversal
+
+Reverse
+
+Levels (BFS / DFS)
+
+Practical Advice (real talk)
+
+You don’t need to master everything at once.
+
+For product-based / MERN roles, focus first on:
+
+Functions + closures
+
+Arrays & objects
+
+Async JS (promises, async/await)
+
+DOM + events
+
+ES6 features
+
+API handling
