@@ -1,0 +1,7 @@
+.productContainer{
+    display: flex;
+    padding: 10px;
+}
+.sidebar{
+    width: 500px;
+}

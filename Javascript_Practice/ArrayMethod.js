@@ -1,17 +1,29 @@
-let fruits = ["banana","kiwi","mango","orange"];
-console.log(fruits)
+const arr = [1,2,3,4,5,6,7,8]
 
-console.log(fruits.length);
 
-console.log(fruits.pop());
+// *********       PUSH POP INCLUDES UNSHIFT SHIFT        ********************
 
-console.log(fruits.toString());
+arr.push(9); //add element at the end  of array
+arr.pop(); // remove element from the last 
+arr.unshift(4); // add 1 at the start and shift all the adjacent element to right 
+arr.shift(); //remove element from the start
 
-console.log(fruits.push("apple"));
+// *********    SPLICE *******************************
+// syntax(startIndex , endIndex , item1 , item2)
 
-console.log(fruits);
+let arrOne = arr.splice(1,4) 
+console.log("splice " , arrOne);
+console.log("og" , arr);
 
-console.log("slice");
-console.log(fruits.slice(3));
+
+
+// *********** SLICE *********************************
+// syntax(startIndex , endIndex , )
+
+let arrTwo = arr.slice(1,4)
+console.log("slice" , arrTwo)
+console.log("og" , arr);
+
+
 
  
