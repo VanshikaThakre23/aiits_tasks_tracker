@@ -1,0 +1,124 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+    position: fixed !important ; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
+    z-index: 2000; /* higher than sidebar */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------- THEMES ---------- */
+body.light-theme {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Navbar themes */
+body.light-theme .navbar {
+    background-color: beige;
+}
+
+body.dark-theme .navbar {
+    background-color: #252424;
+}
+
+body.dark-theme .navbar-brand {
+    color: white;
+}
+
+/* ---------- LOGO ---------- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* ---------- NAV ITEMS ---------- */
+.navItem {
+    display: flex;
+    align-items: center;
+}
+
+.navItem .nav-link {
+    margin-right: 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Nav links theme */
+body.light-theme .navItem .nav-link {
+    color: #000;
+}
+
+body.dark-theme .navItem .nav-link {
+    color: #fff;
+}
+
+/* Hover effect */
+.navItem .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- MODE BUTTON ---------- */
+.mode-btn {
+    border: none;
+    padding: 0.4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Mode button themes */
+body.light-theme .mode-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-theme .mode-btn {
+    background-color: #222;
+    color: #fff;
+}
