@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./Navbar.css"
 import { logo } from "../../assets";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Sun, Moon} from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-
 
 
 const Navbar = () => {
@@ -33,6 +32,7 @@ const Navbar = () => {
                     <Link to="/home" className='nav-link  '> Home </Link>
                     <Link to="/products" className='nav-link '> Products </Link>
                     <Link to="/cart" className='nav-link '> Cart </Link>
+                    <Link to="/wishlist" className='nav-link '> <FavoriteBorderIcon/> </Link>
                     <Link to="/login" className='nav-link '> Login </Link>
 
                     <button

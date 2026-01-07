@@ -1,11 +1,16 @@
 import React, { useEffect, useMemo, useState, } from 'react'
-import Navbar from './Components/Navbar/Navbar'
-import Homepage from './Components/Homepage/Homepage'
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios"
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+
+import Navbar from './Components/Navbar/Navbar'
+import Homepage from './Components/Homepage/Homepage'
 import Products from './Components/ProductsPage/Products'
 import Cart from './Components/CartPage/Cart'
+import ProductDetails from './Components/ProductDetails/ProductDetails'
+import Wishlist from './Components/Wishlist/WIshlist'
+
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -14,6 +19,36 @@ const App = () => {
   const [category, setCategory] = useState("");
   const [maxPrice, setmaxPrice] = useState(10000);
 
+  const [cart, setCart] = useState(getCartItem);
+  const [wishlist, setWishlist] = useState(getWishItem);
+
+
+  const handleCart = (data) => {
+    setCart(prev => {
+      const exist = prev.find(item => item.id === data.id)
+      if (exist) {
+        toast.info("Item already in cart");
+        return prev;
+      }
+      toast.success("Added to cart");
+      return [...prev, data];
+    }
+    )
+  }
+
+  const handleWishlist = (data) => {
+    setCart(prev => {
+      const exist = prev.find(item => item.id === data.id)
+      if (exist) {
+        toast.info("Item already in wishlisted");
+        return prev;
+      }
+      toast.success("Added to wishlist");
+      return [...prev, data];
+    }
+    )
+  }
+
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products")
@@ -21,7 +56,26 @@ const App = () => {
       .catch((err) => console.log(err))
   }, []);
 
+  // ye niche ka func cart me add item ko localStorage m store krta hai .we have use anormal function coz arrow func hoist nhi hote normal vale ho jaate hai .agr arrow funct use krre to error aaega ki usatate me pehle use kr liye bina declare kiye
+  function getCartItem() {
+    const savedCartItem = localStorage.getItem("cart");
+    return savedCartItem ? JSON.parse(savedCartItem) : [];
+  }
   useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
+
+  // wishlist add krne k liye bhi vhi func bs name alg
+  function getWishItem() {
+    const savedwishItem = localStorage.getItem("wishlist");
+    return savedwishItem ? JSON.parse(savedwishItem) : [];
+  }
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist))
+  }, [wishlist])
+
+  useEffect(() => {
+
 
     const timer = setTimeout(() => {
       setDebouncedSearch(searchVal);
@@ -73,12 +127,21 @@ const App = () => {
               setCategory={setCategory}
               maxPrice={maxPrice}
               setmaxPrice={setmaxPrice}
+              cart={cart}
+              setCart={setCart}
+              wishlist={wishlist}
+              setWishlist={setWishlist}
+              handleCart={handleCart}
+              handleWishlist={handleWishlist}
             />} />
-          <Route path='/cart' element={<Cart/>}></Route>
+          <Route path='/cart' element={<Cart cart={cart} setCart={setCart} />}></Route>
+          <Route path='/wishlist' element={<Wishlist wishlist={wishlist} setWishlist={setWishlist} handleCart={handleCart} />}></Route>
+          <Route path='/products/:id' element={<ProductDetails data={data} handleCart={handleCart} />}></Route>
+
         </Routes>
       </BrowserRouter>
 
-
+      <ToastContainer />
     </>
 
   )

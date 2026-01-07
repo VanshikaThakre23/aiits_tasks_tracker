@@ -1,62 +1,61 @@
 import React, { useState } from 'react'
-import { Navigation, Pagination, Scrollbar,Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 import './Homepage.css'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { useNavigate } from 'react-router-dom';
 
 
 const Homepage = ({ data }) => {
-// const[slideClick , setSlideClick] = useState([]);
+  // const[slideClick , setSlideClick] = useState([]);
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const handleSlideClick =()=>{
-navigate("/products");
+  const handleSlideClick = () => {
+    navigate("/products");
 
-}
+  }
 
 
-  if(!data || data === "") return "no data";
+  if (!data || data === "") return "no data";
 
   return (
 
     <>
+      <div className="homepage-container">
+        <Swiper
+          className="homepage-swiper"
+          modules={[Navigation, Pagination, Autoplay]}
+          slidesPerView={1}
+          navigation={true}     
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000 }}
+          loop={true}
+         >
+          {data.slice(0, 9).map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="slide-content" onClick={handleSlideClick}>
 
-    <div className="text">
-        <h2>Buy What you want to !</h2>
-    </div>
-      <Swiper 
-        className='swiper'
-        modules={[Navigation, Pagination, Scrollbar , Autoplay]}
-        spaceBetween={50}
-        slidesPerView={4}
-        // navigation = {true}
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        autoplay={{
-          delay:3000}
-        }
+                {/* LEFT side */}
+                <div className="slide-text">
+                  <h2>{item.category}</h2>
+                  <h3>{item.title}</h3>
+                  <p>Exclusive collection just for you</p>
+                </div>
 
-        onSlideChange={() => {
-          console.log("Slides Change");
-        }}
-        onSwiper={(swiper) => {
-          console.log(swiper);
-        }}
-      >
-        {
-          data.slice(0, 90).map((item) => { 
-            return(
-            <SwiperSlide key={item.id} className='swiper-slide' onClick={handleSlideClick}>
-              <img src={item.image} alt="image"/>
-              <h2> {item.category}</h2>
+                {/*--------- RIGHT side ---------*/}
+                <div className="slide-image">
+                  <img src={item.image} alt="image not found" />
+                </div>
+
+              </div>
             </SwiperSlide>
-            )
-          })
-        }
-      </Swiper>
-
+          ))}
+        </Swiper>
+      </div>
 
     </>
   )

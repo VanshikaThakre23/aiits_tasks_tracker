@@ -1,0 +1,133 @@
+ .wish-container {
+     width: 100%;
+     height: auto;
+     margin-top: 5.5rem;
+     overflow: hidden;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+
+ .wish-heading h2 {
+     font-size: 2rem;
+     margin-bottom: 1rem;
+
+ }
+
+ .wishcard-body {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 20px;
+ }
+
+ .wish-body {
+     background-color: #fff;
+     border-radius: 12px;
+     padding: 12px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+     transition: transform 0.3s ease;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     /* justify-content: center; */
+
+ }
+
+ .wish-body:hover {
+     transform: translateY(-4px);
+ }
+
+ .wish-body-img {
+     width: 7rem;
+     height: 7rem;
+     border: 1px solid rgb(0, 0, 0);
+     margin-top: 2px;
+     border-radius: 50%;
+     padding: 0.7rem;
+     margin-bottom: 0.6rem;
+
+ }
+
+ .wish-body-img img {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+     border-radius: 50%;
+ }
+
+ .wishcard-title {
+     font-size: 1rem;
+     max-width: 220px;
+     color: #000;
+     font-weight: 600;
+     white-space: nowrap;
+     text-overflow: ellipsis;
+     overflow: hidden;
+ }
+
+ .wishcard-title:hover {
+     cursor: pointer;
+ }
+
+ .wishcard-btn {
+     padding: 5px;
+     background: #29882d;
+     border: none;
+     color: #fff;
+     width: 100%;
+     border-radius: 20px;
+ }
+
+
+ /* -----------------------dark mode ----------------- */
+ body.dark-theme {
+     background-color: #0F172A;
+     color: #ffff;
+ }
+
+ body.dark.theme .wish-heading h2 {
+     color: #ffff;
+ }
+
+ body.dark.theme .wish-container {
+     background: #111827;
+     /* deep navy */
+     border: 1px solid #1F2937;
+     border-radius: 14px;
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+     transition: transform 0.25s ease, box-shadow 0.25s ease;
+ }
+
+ body.dark-theme .wish-body {
+  background: #111827;                 /* same as product-card-body */
+  border: 1px solid #3a3b3c;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+body.dark-theme .wish-body-img{
+    background:#fff;
+}
+
+body.dark-theme .wishcard-btn {
+  background: transparent;
+  border: 1px solid #38BDF8;
+  color: #38BDF8;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+body.dark-theme .wishcard-btn:hover {
+  background: #38BDF8;
+  color: #0B1120;
+}
+
+body.dark-theme .wishcard-title{
+    color: #fff;
+}
+

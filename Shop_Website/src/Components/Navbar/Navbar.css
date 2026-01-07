@@ -1,4 +1,4 @@
-/* ---------- RESET ---------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@ body {
     width: 100%;
     height: 80px;
 
-    z-index: 2000; /* higher than sidebar */
+    z-index: 2000; 
 
     display: flex;
     align-items: center;
@@ -31,7 +31,7 @@ body {
 }
 
 
-/* ---------- THEMES ---------- */
+
 body.light-theme {
     background-color: #f5f5f5;
     color: #000;
@@ -42,13 +42,12 @@ body.dark-theme {
     color: #fff;
 }
 
-/* Navbar themes */
 body.light-theme .navbar {
     background-color: beige;
 }
 
 body.dark-theme .navbar {
-    background-color: #252424;
+    background-color: #111827;
 }
 
 body.dark-theme .navbar-brand {
