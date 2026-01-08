@@ -157,7 +157,7 @@
   font-size: 15px;
   color: #000;
   font-weight:700;
-  margin-left: 0;
+
 }
 .product-card-bottom{
   display: flex;
@@ -306,3 +306,4 @@ body.dark-theme .product-card-price{
 }
 
 
+ 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import "./ProductDetails.css"
 
-const ProductDetails = ({ data , handleCart }) => {
+const ProductDetails = ({ data, handleCart, handleWishlist }) => {
 
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const ProductDetails = ({ data , handleCart }) => {
   return (
     <>
       <div className="details-container">
-        <button className='goback-btn' onClick={()=>navigate("/products")}>Go Back</button>
+        <button className='goback-btn' onClick={() => navigate("/products")}>Go Back</button>
 
         <div className="item-details-body">
 
@@ -27,7 +27,11 @@ const ProductDetails = ({ data , handleCart }) => {
             <h2>{items.title}</h2>
             <h3>{items.category}</h3>
             <h4>Rs.{items.price}</h4>
-            <button onClick={()=>handleCart(items)} >Add to cart</button>
+            <div>
+              <button onClick={() => handleCart(items)} className="details-btn1">Add to cart</button>
+              <button onClick={() => handleWishlist(items)} className="details-btn2" >Wishlist Item</button>
+            </div>
+
           </div>
 
         </div>

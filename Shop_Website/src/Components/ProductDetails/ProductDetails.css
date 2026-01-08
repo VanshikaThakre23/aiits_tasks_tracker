@@ -63,10 +63,15 @@
     margin-bottom: 0.5rem;
 }
 .details-info button{
-    padding: 6px;
+    padding: 7px;
     background-color:rgb(59, 126, 59);
     color: #fff;
     border-radius: 10px;
     border: none;
     margin-top: 1rem;
+
+}
+
+.details-btn1{
+    margin-right:1rem;
 }

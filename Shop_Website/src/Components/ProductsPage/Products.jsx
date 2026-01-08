@@ -11,18 +11,6 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
 
     const [sidebarbutton, setSidebarbutton] = useState(true);
 
-    // const handleCart = (products) => {
-    //     setCart(prevCart => [...prevCart, products]);
-    //     // alert("item added to cart");
-    //     toast("Added to cart ");
-    // }
-
-    // const handleWishlist = (products) => {
-    //     setWishlist(prev => [...prev, products]);
-    //     // alert("item added to wishlist");
-    //     toast("item added to wishlist")
-    // }
-
     return (
         <>
             <div className={`layout ${sidebarbutton ? "sidebar-open" : "sidebar-closed"}`}>
@@ -58,7 +46,8 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
                                         Rs 0 - Rs {maxPrice}
                                     </p>
 
-                                    <input type="range" min={0} max={1000} step={100} value={maxPrice} onChange={(e) => setmaxPrice(Number(e.target.value))} />
+                                    <input type="range" min={0} max={1000} step={100} value={maxPrice} 
+                                    onChange={(e) => setmaxPrice(Number(e.target.value))} />
                                 </div>
                             </div>
 
@@ -69,7 +58,7 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
 
 
                 <div className="card-container">
-                    {
+                    { 
                         data.map(item => (
                             <div className="product-card-body" key={item.id}>
                                 <FavoriteBorderIcon onClick={() => handleWishlist(item)} className='heartIcon' />

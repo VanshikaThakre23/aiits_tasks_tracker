@@ -1,6 +1,6 @@
 
 .cart-container{
-    margin-top: 6rem!important;
+    margin-top: 5rem!important;
     display: flex;
     flex-direction: column;
 
@@ -8,7 +8,9 @@
 .cart-heading {
     margin: auto;
     display: block;
-    padding: 2px;
+    padding-top:22px;  
+
+
 }
 
 body.light-theme .cart-heading h2{
@@ -19,11 +21,11 @@ body.light-theme .cart-heading h2{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 60%;
     border: 1px solid black;
     border-radius: 10px;
     padding: 1rem;
-    margin-left: 10%;
+    margin-left: 20%;
     margin-bottom:1rem ;
 }
  .cartitem-img{
@@ -33,11 +35,42 @@ body.light-theme .cart-heading h2{
 }
 .cartimg-title-container{
    width: 40vh;
-   font-size: 0.9rem;
+   overflow-x: hidden;
 } 
-.cart-item-counter{
-    width: 20vh;
+.cartitem-title{
+font-size: 1.2rem;
 }
+.cart-item-counter{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.addIcon ,  .minusIcon , .removeIcon{
+cursor: pointer;
+}
+.removeIcon{
+    margin-left: 11px;
+}
+
+
+.empty-cart-text{
+
+   margin: auto;
+   display: block;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+
+.quantity {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
 /* ------------------------darktheme Css */
 body.dark-theme .cartitem-img{
     background-color: #fff;
@@ -47,8 +80,4 @@ body.dark-theme .cartitem-img{
 }
 body.dark-theme .cart-item{
     border: 1px solid #49555d;
-}
-.removeitem-btn{
-  margin-left: 3rem;
-  cursor: pointer;
 }
