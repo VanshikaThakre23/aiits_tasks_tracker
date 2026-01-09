@@ -61,7 +61,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.category button {
+.category  button {
     margin: 7px;
     padding: 4px;
     border-radius: 4px;
@@ -69,7 +69,7 @@
     border: none;
 }
 
-.category button:hover {
+.category  button:hover {
     background-color: rgb(104, 143, 68);
     color: #fff;
     border-radius: 10px;
@@ -208,14 +208,14 @@ body.dark-theme .sidebar_openclosebtn:hover {
   background-color: #38BDF8;
 }
 
-body.dark-theme .category button {
+body.dark-theme .category  button {
   border: 1px solid #38BDF8 ;
   background:transparent;
   color: #38BDF8;
 }
 
-body.dark-theme .category button:hover,
-body.dark-theme .category button.active {
+body.dark-theme .category  button:hover,
+body.dark-theme .category  button.active {
   background-color: #38BDF8;
   color: #000;
   font-weight: 500;
@@ -234,7 +234,7 @@ body.dark-theme .title {
   color: #fff;
 }
 
-body.dark-theme .category {
+body.dark-theme .category  {
   color: #bbb;
 }
 

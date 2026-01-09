@@ -1,11 +1,11 @@
 import React, { useState, } from 'react'
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart, Menu , X } from 'lucide-react';
+import { ShoppingCart, Menu, X } from 'lucide-react';
 
 import "./Products.css";
 
-const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmaxPrice , handleCart , handleWishlist }) => {
+const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmaxPrice, handleCart, handleWishlist, setSubcategory }) => {
 
     const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
                                     <button onClick={() => setCategory("jewelery")}>Jewellary</button>
                                 </div>
 
-
+                            
                                 <div className="price-content mt-4 ">
                                     <h5>Price</h5>
 
@@ -46,8 +46,8 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
                                         Rs 0 - Rs {maxPrice}
                                     </p>
 
-                                    <input type="range" min={0} max={1000} step={100} value={maxPrice} 
-                                    onChange={(e) => setmaxPrice(Number(e.target.value))} />
+                                    <input type="range" min={0} max={1000} step={100} value={maxPrice}
+                                        onChange={(e) => setmaxPrice(Number(e.target.value))} />
                                 </div>
                             </div>
 
@@ -58,7 +58,7 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
 
 
                 <div className="card-container">
-                    { 
+                    {
                         data.map(item => (
                             <div className="product-card-body" key={item.id}>
                                 <FavoriteBorderIcon onClick={() => handleWishlist(item)} className='heartIcon' />
@@ -79,9 +79,9 @@ const Products = ({ data, searchVal, setSearchVal, setCategory, maxPrice, setmax
                     }
                 </div>
 
-            </div>
+            </div >
 
-           
+
         </>
     )
 }

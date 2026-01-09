@@ -1,66 +1,20 @@
-/* .container-login{
-    margin-top: 12rem;
-    margin-left:37%;
-}
-.form-body{
-    display: flex;
-    flex-direction: column;
-    
-    border: 1px solid rgb(0, 0, 0);
-    box-shadow: 1px 2px 8px 2px rgb(116, 115, 113) ;
-    height: auto;
-    width: 30rem;
-    padding: 1rem;
-    background: rgb(207, 207, 201);
-}
-.form-body h2{
-    margin: auto;
-    font-size:2rem;
-  
-}
-.form-body label{
-    margin-top: 1rem;
-    font-weight: 500;
-    
-}
-.form-body input{
-    width: auto;
-    margin-top: 0.7rem;
-      
-}
 
-.form-body button{
-    margin: 2rem  0  0 5rem ;
-    padding: 0.2rem;
-    border-radius: 20px;
-    background-color: rgb(57, 143, 57);
-    color: #fff;
-    border: none;
-    font-size: 1.2rem;
-    width: 60%;
-    
-}
-.form-body button:hover{
-    background-color: #2f7b2f;
-    color: #000;
-    font-weight: 500;
-}
-.sign-up{
- display: none;
-} */
 .container-login {
   width: 350px;
-  margin: 100px auto;
+  margin: 150px auto;
 }
 
 .form-body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 1px solid grey;
+  padding: 2rem 1.2rem;
+  border-radius: 9px;
 }
 
 .form-body input {
-  padding: 8px;
+  padding: 3px;
 }
 
 .form-body button {
@@ -75,7 +29,21 @@
 .link-btn {
   background: none;
   border: none;
-  color: blue;
+  color: #fff;
   cursor: pointer;
   padding: 0;
+}
+
+body.dark-theme .link-btn {
+  background: transparent;
+  border: 1px solid #38BDF8;
+  color: #38BDF8;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+body.dark-theme .link-btn:hover {
+  background: #38BDF8;
+  color: #0B1120;
 }

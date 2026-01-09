@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState, } from 'react'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios"
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 
 import Navbar from './Components/Navbar/Navbar'
 import Homepage from './Components/Homepage/Homepage'
@@ -22,6 +22,8 @@ const App = () => {
   const [cart, setCart] = useState(getCartItem);
   const [wishlist, setWishlist] = useState(getWishItem);
 
+  const navigate = useNavigate();
+
 
   // ------------------ Api Fetch using using axios-----------------
   useEffect(() => {
@@ -33,6 +35,15 @@ const App = () => {
 
   // --------------------item ko cart me daalne k liye with help of toast---------------------------
   const handleCart = (data) => {
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You need to logged in first");
+      navigate("/login");
+      return;
+    }
+
+
     setCart(prev => {
       const exist = prev.find(item => item.id === data.id);
 
@@ -48,6 +59,14 @@ const App = () => {
 
   // --------------------item ko cart me wishlist krne k liye with help of toast---------------------------
   const handleWishlist = (data) => {
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You need to logged in first");
+      navigate("/login");
+      return;
+    }
+
     setCart(prev => {
       const exist = prev.find(item => item.id === data.id)
       if (exist) {
@@ -80,7 +99,6 @@ const App = () => {
     )
     setCart(updatedCart);
   }
-
 
   // ye niche ka func cart me add item ko localStorage m store krta hai .we have use anormal function coz arrow func hoist nhi hote normal vale ho jaate hai .agr arrow funct use krre to error aaega ki usatate me pehle use kr liye bina declare kiye
   function getCartItem() {
@@ -115,7 +133,6 @@ const App = () => {
     return data.filter(item => {
       const matchedSearch = debouncedSearch ? item.title.toLowerCase().includes(debouncedSearch.toLowerCase()) : true;
 
-
       const matchedCategory = category ? item.category === category : true;//condition lgare and variable me store krre 
       // agr category set ki hai to vhi vale products show hone
       // true mtlb sare product show honge[true tb hoga jb koi category select nhi hogi]
@@ -123,44 +140,39 @@ const App = () => {
 
       const matchedPrice = item.price <= maxPrice;//jo jo item ke price range vale price se chhote ya equal honge vo show hoga 
 
-      return matchedSearch && matchedCategory && matchedPrice;
+      return matchedSearch && matchedCategory && matchedPrice ;
 
 
     });
-  }, [data, debouncedSearch, category, maxPrice]);
+  }, [data, debouncedSearch, category, maxPrice, ]);
 
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path='/home' element={<Homepage data={data} />} />
-          <Route path='/products' element={
-            <Products
-              data={filteredData}
-              searchVal={searchVal}
-              setSearchVal={setSearchVal}
-              setCategory={setCategory}
-              maxPrice={maxPrice}
-              setmaxPrice={setmaxPrice}
-              cart={cart}
-              setCart={setCart}
-              wishlist={wishlist}
-              setWishlist={setWishlist}
-              handleCart={handleCart}
-              handleWishlist={handleWishlist}
-            />} />
-          <Route path='/cart' element={<Cart cart={cart} setCart={setCart} updateQuantity={updateQuantity} />}></Route>
-          <Route path='/wishlist' element={<Wishlist wishlist={wishlist} setWishlist={setWishlist} handleCart={handleCart} />}></Route>
-          <Route path='/products/:id' element={<ProductDetails data={data} handleCart={handleCart} handleWishlist={handleWishlist} />}></Route>
-          <Route path='/login' element={<Login/>}></Route>
+      <Navbar />
 
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path='/home' element={<Homepage data={data} />} />
+        <Route path='/products' element={
+          <Products
+            data={filteredData}
+            searchVal={searchVal}
+            setSearchVal={setSearchVal}
+            setCategory={setCategory}
+            maxPrice={maxPrice}
+            setmaxPrice={setmaxPrice}
+            handleCart={handleCart}
+            handleWishlist={handleWishlist}
+            
+          />} />
+        <Route path='/cart' element={<Cart cart={cart} setCart={setCart} updateQuantity={updateQuantity} />}></Route>
+        <Route path='/wishlist' element={<Wishlist wishlist={wishlist} setWishlist={setWishlist} handleCart={handleCart} />}></Route>
+        <Route path='/products/:id' element={<ProductDetails data={data} handleCart={handleCart} handleWishlist={handleWishlist} />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+      </Routes>
 
-        </Routes>
-      </BrowserRouter>
 
       <ToastContainer
         position='top-right'
