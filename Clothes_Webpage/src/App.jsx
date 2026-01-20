@@ -26,7 +26,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(searchVal);
-      // console.log("-------------",setDebouncedSearch);
+      // console.log("----------- --",setDebouncedSearch);
     }, 200);
 
     return () => clearTimeout(timer);
@@ -60,7 +60,8 @@ const App = () => {
 
 
           <Route path="/home" element={<Homepage data={filteredData} />}></Route>
-          <Route path="/products" element={<Products
+          <Route path="/products" element={
+            <Products
             data={filteredData}
             searchVal={searchVal}
             setSearchVal={setSearchVal}

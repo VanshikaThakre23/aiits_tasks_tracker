@@ -1,0 +1,32 @@
+body{
+    background: #000;
+}
+
+.container {
+    padding: 6px 10px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: black;
+    color: white;
+    border-radius: 4px;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);   /* FIX */
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.container:hover .tooltip-text {
+    visibility: visible;
+}

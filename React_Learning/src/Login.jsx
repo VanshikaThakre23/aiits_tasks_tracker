@@ -15,22 +15,15 @@ const Login = () => {
     const navigate = useNavigate();
 
     const generateToken = () => {
-
         let token = "";
-
         for (let i = 0; i <= 20; i++) {
-
-
             const words = Math.floor(Math.random() * characters.length);
-
             token += characters[words];
         }
-
         return token;
     }
 
-
-
+    
     const handleLogin = () => {
         if (userLogin.email === "") {
             alert("All fields are requires");

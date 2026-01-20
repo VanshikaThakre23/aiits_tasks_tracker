@@ -3,9 +3,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 // import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { ShoppingCart } from 'lucide-react';
 
-import "./Card.css"
+import "./Cards.css"
 
 const Card = ({ data }) => {
+
+    
 
     return (
         <>
